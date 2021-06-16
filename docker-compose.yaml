@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  indibox:
+    image: ghcr.io/ahayden/indibox:base
+    hostname: indibox
+    extra_hosts:
+      - "indibox:127.0.0.1"
+    ports:
+      - "7624:7624"
+    container_name: indibox
+    volumes:
+      - config-persist:/home/$USER/.indi
+    command: indigo-server
+
+volumes:
+  config-persist:
