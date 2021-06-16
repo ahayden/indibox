@@ -24,7 +24,7 @@ RUN apt-get update -qq -y && apt-get install --no-install-recommends -qq -y \
 
 RUN echo "deb [trusted=yes] https://indigo-astronomy.github.io/indigo_ppa/ppa indigo main" >> /etc/apt/sources.list.d/indigo.list \
     && apt-get update -qq -y apt-get install --no-install-recommends -qq -y \
-      indigo indigo-control-panel \
+      indigo indigo-control-panel 
 
 RUN adduser --disabled-password ${container_user} \
     && usermod -a -G users ${container_user} \
