@@ -27,10 +27,7 @@ RUN echo "deb [trusted=yes] https://indigo-astronomy.github.io/indigo_ppa/ppa in
       indigo indigo-control-panel 
 
 RUN adduser --disabled-password ${container_user} \
-    && usermod -a -G users ${container_user} \
-    && usermod -a -G sudo ${container_user} \
-    && echo "${container_user} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${container_user} \
-    && chmod 0440 /etc/sudoers.d/${container_user}
+    && usermod -a -G users ${container_user} 
 
 USER ${container_user}
 
